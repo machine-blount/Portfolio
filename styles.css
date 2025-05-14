@@ -48,24 +48,29 @@ flex: 1;
     background-repeat: no-repeat;
 }
 
-.controls{
+.controls {
     display: flex;
     background-color: pink;
-    flex: 0.25;
-}
-
-.switch{
-    flex: 1;
-    margin: 1%;
+    flex: .25;
+    align-items: center;
+    padding: 0 1rem;
+  }
+  
+  .switch {
+    width: 15%; /* 25% of parent width = 50% total for 2 buttons */
+    margin-right: 1rem;
     background-color: brown;
-}
+    padding: 2rem;
+    cursor: pointer;
+  }
+  
+  
 
 .switch:hover{
     background-color: rgb(85, 85, 85);
 }
-
 /*
-.switch:nth-child(1){
+.switch:nth-child(1):{
 
 }
 */
@@ -104,6 +109,7 @@ flex: 1;
 
 .label:hover{
     background-color: rgb(85, 85, 85);
+    cursor: pointer;
 }
 
 
@@ -250,5 +256,16 @@ flex: 1;
     font-weight: 400;
 }
 
-/* Main container that splits the screen */
+#project-link {
+    display: inline-block;
+    margin-top: 1rem;
+    background: #28a745;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+  }
 
+  #project-link.hidden {
+    display: none;
+  }

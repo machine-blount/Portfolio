@@ -3,15 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Henry Blount</title>
-
     <link rel="icon" type="image/png" href="assets/favicon.png" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="window">
-
       <div class="projects">
         <div class="project">
           <div class="control" data-key="Frameoko">
@@ -23,7 +20,7 @@
         </div>
 
         <div class="project">
-          <div class="control">
+          <div class="control" data-key="Aux-kit">
             <img src="" alt="switch" />
           </div>
           <div class="label" data-key="Aux-kit">
@@ -32,7 +29,7 @@
         </div>
 
         <div class="project">
-          <div class="control">
+          <div class="control" data-key="Metal Work">
             <img src="" alt="switch" />
           </div>
           <div class="label" data-key="Metal Work">
@@ -41,7 +38,7 @@
         </div>
 
         <div class="project">
-          <div class="control">
+          <div class="control" data-key="NuFLo">
             <img src="" alt="switch" />
           </div>
           <div class="label" data-key="NuFLo">
@@ -51,39 +48,21 @@
       </div>
 
       <div class="inspector">
-        <!--
-                <div class="marquee">
-          <div>
-            <span
-              >++++ this is a running text aka marquee using html &amp; css +
-              text length is limited to the width</span
-            >
-            you need the second one - otherwise there is a lot of blank space and it will look odd
-            <span
-              >++++ this is a running text aka marquee using html &amp; css +
-              text length is limited to the width</span
-            >
-          </div>
-        </div>
-        -->
-
-
         <div class="preview">
           <h2 id="content-title"></h2>
           <img id="content-image" alt="project" src="" />
         </div>
         <div class="controls">
-          <div class="switch"></div>
-          <div class="switch"></div>
-          <div class="switch"></div>
-          <div class="switch"></div>
+          <button class="switch" id="switch-1">Switch 1</button>
+          <button class="switch">Switch 2</button>
         </div>
         <div class="description" id="content-description"></div>
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
-  <script src="script.js"></script>
 </html>
+
 
 <!-- 
 TODO:
