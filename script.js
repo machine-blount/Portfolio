@@ -121,18 +121,66 @@ buttons.forEach(button => {
 });
 
 //FORM HOTLOADING
-document.getElementById('').addEventListener('click', () => {
-    const formHTML = `
-      <form id="myForm">
-        <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name"><br><br>
-
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email"><br><br>
-
-        <button type="submit">Submit</button>
-      </form>
-    `;
-
-    document.getElementById('formContainer').innerHTML = formHTML;
+document.getElementById("switch-2").addEventListener("click", () => {
+    const container = document.getElementById("contact-form-container");
+    const isVisible = container.style.display === "block";
+  
+    // Toggle visibility
+    container.style.display = isVisible ? "none" : "block";
+  
+    // Clear project description if showing form
+    document.getElementById("content-description").style.display = isVisible ? "block" : "none";
+  
+    if (!isVisible) {
+      container.innerHTML = `
+        <form class="contact-form">
+          <div class="form-row full-width">
+            <div class="form-group">
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+          </div>
+  
+          <div class="form-row full-width">
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+          </div>
+  
+          <div class="form-row full-width">
+            <div class="form-group">
+              <label for="message">Message:</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+          </div>
+  
+          <div class="form-row full-width">
+            <button type="submit" class="submit-button">Send</button>
+          </div>
+        </form>
+      `;
+    }
   });
+  
+  //WINDOW SCALING
+  function updateScale() {
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+  
+    const scaleX = vw / originalWidth;
+    const scaleY = vh / originalHeight;
+  
+    const scale = Math.min(scaleX, scaleY, 1);
+  
+    // Calculate leftover space for centering scaled container
+    const scaledWidth = originalWidth * scale;
+    const scaledHeight = originalHeight * scale;
+  
+    // Calculate translate offsets to center visually in viewport
+    const translateX = (vw - scaledWidth) / 2 / scale;
+    const translateY = (vh - scaledHeight) / 2 / scale;
+  
+    // Apply scale + translate so container stays perfectly centered in viewport
+    container.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+  }
