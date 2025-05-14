@@ -3,15 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Henry Blount</title>
-
     <link rel="icon" type="image/png" href="assets/favicon.png" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="window">
-
       <div class="projects">
         <div class="project">
           <div class="control" data-key="Frameoko">
@@ -23,7 +20,7 @@
         </div>
 
         <div class="project">
-          <div class="control">
+          <div class="control" data-key="Aux-kit">
             <img src="" alt="switch" />
           </div>
           <div class="label" data-key="Aux-kit">
@@ -32,7 +29,7 @@
         </div>
 
         <div class="project">
-          <div class="control">
+          <div class="control" data-key="Metal Work">
             <img src="" alt="switch" />
           </div>
           <div class="label" data-key="Metal Work">
@@ -41,7 +38,7 @@
         </div>
 
         <div class="project">
-          <div class="control">
+          <div class="control" data-key="NuFLo">
             <img src="" alt="switch" />
           </div>
           <div class="label" data-key="NuFLo">
@@ -50,36 +47,62 @@
         </div>
       </div>
 
-      <div class="inspector">
-        <!--
-                <div class="marquee">
-          <div>
-            <span
-              >++++ this is a running text aka marquee using html &amp; css +
-              text length is limited to the width</span
-            >
-            you need the second one - otherwise there is a lot of blank space and it will look odd
-            <span
-              >++++ this is a running text aka marquee using html &amp; css +
-              text length is limited to the width</span
-            >
-          </div>
+      <form class="contact-form">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="email">Email*</label>
+                <input type="email" id="email" name="email" placeholder="example@email.com" required>
+            </div>
         </div>
-        -->
-
-        <div class="preview">
-          <h2 id="content-title"></h2>
-          <img id="content-image" alt="project" src="" />
+        <div class="form-row">
+            <div class="form-group">
+                <label for="country">Country or Region*</label>
+                <input type="text" id="country" name="country" placeholder="United States" required>
+            </div>
+    
         </div>
-        <div class="controls">
-          <div class="switch"></div>
-          <div class="switch"></div>
-          <div class="switch"></div>
-          <div class="switch"></div>
+        <div class="form-row full-width">
+            <div class="form-group">
+                <label for="message">Message*</label>
+                <textarea id="message" name="message" rows="6" placeholder="Please describe your inquiry in detail..." required></textarea>
+            </div>
         </div>
-        <div class="description" id="content-description"></div>
-      </div>
+        <div class="form-row">
+            <button type="submit" class="submit-button">Submit</button>
+        </div>
+    </form>
     </div>
+    <script src="script.js"></script>
+
+    <!-- Landing overlay         
+    <div class="landing">
+      <video class="landing-video" autoplay muted playsinline>
+          <source src="assets/landing-stamp.mp4" type="video/mp4">
+        
+      </video>
+
+ 
+                  <div class="corner-buttons">
+          <button class="corner-button top-left"></button>
+          <button class="corner-button top-right"></button>
+          <button class="corner-button bottom-left"></button>
+          <button class="corner-button bottom-right"></button>
+      </div>     
+      -->
+      
   </body>
-  <script src="script.js"></script>
 </html>
+
+
+<!-- 
+TODO:
+general layout - complete
+linking and functionality - 
+animations and maya models imported -
+-->
+
+
+
+
+
+

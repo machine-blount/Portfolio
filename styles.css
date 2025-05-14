@@ -32,9 +32,9 @@ flex: 1;
     display: block;
     background-color: green;
     overflow-y: scroll;
-    /*background: url(mountain.jpg);*/
+    background: url("assets/backgrounds/projects-bg.V5.jpg");
+    background-size: 100% 100%;
     background-repeat: no-repeat;
-    background-size: auto;
 }
 
 .preview{
@@ -43,9 +43,9 @@ flex: 1;
     align-items: center;
     justify-items: center;
     padding: 5%;
-    background: url("assets/backgrounds/project-bg.jpg");
+    background: url("assets/backgrounds/projects-bg.V2.jpg");
     background-size: 100% 100%;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;   
 }
 
 .controls {
@@ -54,11 +54,15 @@ flex: 1;
     flex: .25;
     align-items: center;
     padding: 0 1rem;
+    background: url("assets/backgrounds/controls-bg.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
   }
   
   .switch {
-    width: 15%; /* 25% of parent width = 50% total for 2 buttons */
+    width: 12%; /* 25% of parent width = 50% total for 2 buttons */
     margin-right: 1rem;
+
     background-color: brown;
     padding: 2rem;
     cursor: pointer;
@@ -82,6 +86,7 @@ flex: 1;
     background: url("assets/backgrounds/description-bg.jpg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
+    text-align: center;
 }
 
 .project{
@@ -143,7 +148,7 @@ flex: 1;
 }
 
 
-/* CORNER BUTTONS */
+/* LANDING PAGE */
 
 .landing .top-left {
     top: 5%;
@@ -269,3 +274,83 @@ flex: 1;
   #project-link.hidden {
     display: none;
   }
+
+
+/* FORM */
+
+
+.contact-form-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    flex:1;
+    background: url("assets/backgrounds/description-bg.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+
+}
+
+.form-row.full-width {
+    width: 100%;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #2680FF;
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.submit-button {
+    background-color: #2680FF;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}
