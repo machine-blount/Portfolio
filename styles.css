@@ -11,7 +11,7 @@ body {
 
 .window{
     display: flex;
-    width: 75vw;
+    width: 60vw;
     height: 75vh;
     background-color: #fff;
 }
@@ -32,6 +32,9 @@ flex: 1;
     display: block;
     background-color: green;
     overflow-y: scroll;
+    /*background: url(mountain.jpg);*/
+    background-repeat: no-repeat;
+    background-size: auto;
 }
 
 .preview{
@@ -40,6 +43,9 @@ flex: 1;
     align-items: center;
     justify-items: center;
     padding: 5%;
+    background: url("assets/backgrounds/project-bg.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
 .controls{
@@ -58,17 +64,25 @@ flex: 1;
     background-color: rgb(85, 85, 85);
 }
 
+/*
+.switch:nth-child(1){
+
+}
+*/
 .description{
     background-color: blue;
     flex:2;
     overflow-y: scroll;
     padding: 5%;
+    background: url("assets/backgrounds/description-bg.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
 .project{
     display: flex;
     background-color: orange;
-    height: 50px;
+    height: 50px;   
 }
 
 .control{
@@ -81,8 +95,11 @@ flex: 1;
 
 .label{
     width: 70%;
-    background-color: orangered;
+    /*background-color: orangered;*/
     text-align: center;
+    background: url("assets/backgrounds/project-bg.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
 .label:hover{
@@ -234,5 +251,4 @@ flex: 1;
 }
 
 /* Main container that splits the screen */
-
 
