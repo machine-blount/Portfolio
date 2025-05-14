@@ -32,7 +32,7 @@ flex: 1;
     display: block;
     background-color: green;
     overflow-y: scroll;
-    background: url("assets/backgrounds/projects-bg.V7.jpg");
+    background: url("assets/backgrounds/projects-bg.V8.jpg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
@@ -57,22 +57,32 @@ flex: 1;
     background: url("assets/backgrounds/controls-bg.jpg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
+    padding-left: 8%;
   }
   
   .switch {
-    width: 12%; /* 25% of parent width = 50% total for 2 buttons */
-    margin-right: 1rem;
+    width: 3%; /* 25% of parent width = 50% total for 2 buttons */
+    margin-right: 2rem;
 
-    background-color: brown;
+    /*background-color: brown;*/
     padding: 2rem;
     cursor: pointer;
+
+    background: url("assets/backgrounds/knob-bg_1.0001.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
   }
   
   
 
-.switch:hover{
-    background-color: rgb(85, 85, 85);
-}
+
+.active {
+    background: url("assets/backgrounds/knob-bg_1.0010.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+
 /*
 .switch:nth-child(1):{
 
@@ -100,14 +110,36 @@ flex: 1;
     background-color: purple;
     align-items: center;
     justify-items: center;
-    background: url("assets/animations/switch-ani.mp4");
+    background: url("assets/backgrounds/off-switch-bg\ \(2\).jpg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
-
+    cursor: pointer;
 }
 
+.control-active{
+    background: url("assets/backgrounds/on-switch-bg\ \(2\).jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+/*
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+  tool tips
+.control-tt{
+
+}
+  
+.switch-tt{
+
+}
+*/
+
 .label{
-    width: 70%;
+    width: 80%;
     /*background-color: orangered;*/
     text-align: center;
     background: url("assets/backgrounds/project-bg.jpg");

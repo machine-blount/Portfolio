@@ -103,14 +103,36 @@ var video = document.getElementById("myVideo");
 // Get the button
 var btn = document.getElementById("myBtn");
 
-// Pause and play the video, and change the button text
-function myFunction() {
-  if (video.paused) {
-    video.play();
-    btn.innerHTML = "Pause";
-  } else {
-    video.pause();
-    btn.innerHTML = "Play";
-  }
-}
-  
+//button interactions
+const buttons = document.querySelectorAll('.switch');
+
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    const isActive = button.classList.contains('active');
+
+    // Reset all buttons
+    buttons.forEach(btn => btn.classList.remove('active'));
+
+    // If the clicked one wasn't active, activate it
+    if (!isActive) {
+      button.classList.add('active');
+    }
+  });
+});
+
+//FORM HOTLOADING
+document.getElementById('').addEventListener('click', () => {
+    const formHTML = `
+      <form id="myForm">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br><br>
+
+        <button type="submit">Submit</button>
+      </form>
+    `;
+
+    document.getElementById('formContainer').innerHTML = formHTML;
+  });
