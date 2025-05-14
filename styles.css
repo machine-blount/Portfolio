@@ -32,7 +32,7 @@ flex: 1;
     display: block;
     background-color: green;
     overflow-y: scroll;
-    background: url("assets/backgrounds/projects-bg.V5.jpg");
+    background: url("assets/backgrounds/projects-bg.V7.jpg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
@@ -100,6 +100,9 @@ flex: 1;
     background-color: purple;
     align-items: center;
     justify-items: center;
+    background: url("assets/animations/switch-ani.mp4");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 
 }
 
