@@ -394,3 +394,32 @@ flex: 1;
     background-color: #0056b3;
 }
 
+/* TOOLTIPS */
+
+.tooltip {
+    position: absolute;
+    background-color: #333;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 10;
+  }
+  
+  #switch-1:hover + #tooltip-switch-1,
+  #switch-2:hover + #tooltip-switch-2 {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  /* Optional: Position tooltips above the switches */
+  #tooltip-switch-1,
+  #tooltip-switch-2 {
+    transform: translateY(-120%);
+    left: 50%;
+    transform: translateX(-50%) translateY(-120%);
+  }
