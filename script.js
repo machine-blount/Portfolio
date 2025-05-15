@@ -10,7 +10,8 @@ const projectData = {
         endmill included in the Shapeoko 4 bundle from Carbide. This is not a fixed parameter and you're welcome to cut it out whichever 
         way works best.</p>
       `,
-      link: 'https://chat.openai.com/'
+      link: 'https://chat.openai.com/',
+      controlBg: 'assets/backgrounds/on-switch.jpg' // NEW FIELD
     },
     "Aux-kit": {
       title: "Aux-kit",
@@ -20,7 +21,8 @@ const projectData = {
         <p>An all in one auxiliary/supplementary solution for any electric-powered solar car teams competing in the National Solar Car Challenge. 
         In its current version It is designed as a Pi-HAT which connects to multiple expansion boards for quick iteration on separate parts of the system.</p>
       `,
-      link: 'https://chat.openai.com/'
+      link: 'https://chat.openai.com/',
+      controlBg: 'assets/backgrounds/on-switch.jpg'
     },
     "Metal Work": {
       title: "Metal Work",
@@ -30,7 +32,8 @@ const projectData = {
         <p>Description of the Metal Work project goes here. Add details about what the project is, 
         technologies used, and its purpose.</p>
       `,
-      link: 'https://chat.openai.com/'
+      link: 'https://chat.openai.com/',
+      controlBg: 'assets/backgrounds/on-switch.jpg'
     },
     NuFLo: {
       title: "NuFLo",
@@ -40,7 +43,8 @@ const projectData = {
         <p>Description of the NuFLo project goes here. Add details about what the project is, 
         technologies used, and its purpose.</p>
       `,
-      link: 'https://chat.openai.com/'
+      link: 'https://chat.openai.com/',
+      controlBg: 'assets/backgrounds/on-switch.jpg'
     }
   };
   
@@ -59,17 +63,32 @@ const projectData = {
     if (!data) return;
   
     currentProjectKey = key;
+  
+    // Update the description and image
     document.getElementById("content-description").innerHTML = data.description;
     document.getElementById("content-image").src = data.image;
+  
+    // Reset all .control backgrounds to default (optional)
+    document.querySelectorAll(".control").forEach(control => {
+      control.style.backgroundImage = 'url("assets/backgrounds/off-switch-bg (2).jpg")';
+    });
+  
+    // Set the background image of the clicked control
+    const project = document.querySelector(`.project .control[data-key="${key}"]`);
+    if (project && data.controlBg) {
+      project.style.backgroundImage = `url("${data.controlBg}")`;
+    }
   }
   
-  // Set up Switch 1 behavior to open link of selected project
+  
+  // Open link on switch click
   document.getElementById("switch-1").addEventListener("click", () => {
     if (currentProjectKey && projectData[currentProjectKey]) {
       const link = projectData[currentProjectKey].link;
       window.open(link, "_blank");
     }
   });
+  
   
   // Optional existing animation logic — kept intact
   document.addEventListener("DOMContentLoaded", () => {
@@ -122,47 +141,46 @@ buttons.forEach(button => {
 
 //FORM HOTLOADING
 document.getElementById("switch-2").addEventListener("click", () => {
-    const container = document.getElementById("contact-form-container");
-    const isVisible = container.style.display === "block";
-  
-    // Toggle visibility
-    container.style.display = isVisible ? "none" : "block";
-  
-    // Clear project description if showing form
-    document.getElementById("content-description").style.display = isVisible ? "block" : "none";
-  
-    if (!isVisible) {
-      container.innerHTML = `
-        <form class="contact-form">
-          <div class="form-row full-width">
-            <div class="form-group">
-              <label for="name">Name:</label>
-              <input type="text" id="name" name="name" required />
-            </div>
+  const container = document.getElementById("contact-form-container");
+  const isVisible = container.style.display === "block";
+
+  // Toggle visibility
+  container.style.display = isVisible ? "none" : "block";
+
+  // Clear project description if showing form
+  document.getElementById("content-description").style.display = isVisible ? "block" : "none";
+
+  if (!isVisible) {
+    container.innerHTML = `
+      <form class="contact-form">
+        <div class="form-row full-width">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required />
           </div>
-  
-          <div class="form-row full-width">
-            <div class="form-group">
-              <label for="email">Email:</label>
-              <input type="email" id="email" name="email" required />
-            </div>
+        </div>
+
+        <div class="form-row full-width">
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
           </div>
-  
-          <div class="form-row full-width">
-            <div class="form-group">
-              <label for="message">Message:</label>
-              <textarea id="message" name="message" required></textarea>
-            </div>
+        </div>
+
+        <div class="form-row full-width">
+          <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
           </div>
-  
-          <div class="form-row full-width">
-            <button type="submit" class="submit-button">Send</button>
-          </div>
-        </form>
-      `;
-    }
-  });
-  
+        </div>
+
+        <div class="form-row full-width">
+          <button type="submit" class="submit-button">Send</button>
+        </div>
+      </form>
+    `;
+  }
+});
   //WINDOW SCALING
   function updateScale() {
     const vw = window.innerWidth;
