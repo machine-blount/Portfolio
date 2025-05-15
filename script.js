@@ -4,7 +4,6 @@ const projectData = {
       title: "Frameoko",
       image: "assets/frameoko-turntable(low-res).mp4",
       description: `
-        <h2>Frameoko</h2>
         <p>A Shapeoko "frame" which can be parametrically resized for other machines besides the preconfigured Shapeoko 4. 
         With emphasis on an out of the box build using limited shop tools the CAM files are designed to be cut with the stock 0.25" 
         endmill included in the Shapeoko 4 bundle from Carbide. This is not a fixed parameter and you're welcome to cut it out whichever 
@@ -17,7 +16,6 @@ const projectData = {
       title: "Aux-kit",
       image: "assets/favicon.png",
       description: `
-        <h2>Aux-kit</h2>
         <p>An all in one auxiliary/supplementary solution for any electric-powered solar car teams competing in the National Solar Car Challenge. 
         In its current version It is designed as a Pi-HAT which connects to multiple expansion boards for quick iteration on separate parts of the system.</p>
       `,
@@ -28,7 +26,6 @@ const projectData = {
       title: "Metal Work",
       image: "assets/metal-work.jpg",
       description: `
-        <h2>Metal Work</h2>
         <p>Description of the Metal Work project goes here. Add details about what the project is, 
         technologies used, and its purpose.</p>
       `,
@@ -39,7 +36,6 @@ const projectData = {
       title: "NuFLo",
       image: "assets/nuflo.jpg",
       description: `
-        <h2>NuFLo</h2>
         <p>Description of the NuFLo project goes here. Add details about what the project is, 
         technologies used, and its purpose.</p>
       `,
@@ -65,9 +61,10 @@ const projectData = {
     currentProjectKey = key;
   
     // Update the description and image
+    document.getElementById("content-title").textContent = data.title;
     document.getElementById("content-description").innerHTML = data.description;
     document.getElementById("content-image").src = data.image;
-  
+
     // Reset all .control backgrounds to default (optional)
     document.querySelectorAll(".control").forEach(control => {
       control.style.backgroundImage = 'url("assets/backgrounds/off-switch-bg (2).jpg")';

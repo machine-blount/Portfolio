@@ -79,9 +79,16 @@ flex: 1;
     background-repeat: no-repeat;
 
   }
-  
-  
 
+.project-selection{
+    width: 27%; /* 25% of parent width = 50% total for 2 buttons */
+    /*background-color: brown;*/
+    padding: 2rem;
+    cursor: pointer;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    text-align: center;
+}
 
 .active {
     background: url("assets/backgrounds/knob-bg_1.0010.jpg");
