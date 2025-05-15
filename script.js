@@ -150,32 +150,20 @@ document.getElementById("switch-2").addEventListener("click", () => {
     }
   } else {
     description.innerHTML = `
-      <form class="contact-form">
-        <div class="form-row full-width">
-          <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required />
-          </div>
-        </div>
-
-        <div class="form-row full-width">
-          <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required />
-          </div>
-        </div>
-
-        <div class="form-row full-width">
-          <div class="form-group">
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-          </div>
-        </div>
-
-        <div class="form-row full-width">
-          <button type="submit" class="submit-button">Send</button>
-        </div>
-      </form>
+<form
+  action="https://formspree.io/f/xanoadyy"
+  method="POST"
+>
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <button type="submit">Send</button>
+</form>
     `;
   }
 
