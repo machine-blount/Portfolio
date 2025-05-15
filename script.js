@@ -87,31 +87,6 @@ const projectData = {
   });
   
   
-  // Optional existing animation logic — kept intact
-  document.addEventListener("DOMContentLoaded", () => {
-    const cornerButtons = document.querySelectorAll(".corner-button");
-    const landing = document.querySelector(".landing");
-    const clickedButtons = new Set();
-  
-    function triggerFallAnimation() {
-      landing.classList.add("fall");
-    }
-  
-    const autoFallTimeout = setTimeout(triggerFallAnimation, 10500);
-  
-    cornerButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        clickedButtons.add(button);
-        button.style.opacity = "0.5";
-        button.style.transform = "scale(0.8)";
-  
-        if (clickedButtons.size === 4) {
-          clearTimeout(autoFallTimeout);
-          landing.classList.add("fall");
-        }
-      });
-    });
-  });
 
   // Get the video
 var video = document.getElementById("myVideo");
@@ -192,3 +167,49 @@ document.getElementById("switch-2").addEventListener("click", () => {
     // Apply scale + translate so container stays perfectly centered in viewport
     container.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
   }
+
+  //LANDING
+  document.addEventListener("DOMContentLoaded", () => {
+    const landing = document.getElementById("landing");
+    const video = document.getElementById("landing-video");
+  
+    // Start playback muted
+    video.muted = true;
+    video.play();
+  
+    // Pause the video after 2 seconds of playback time
+    const pauseTime = 1.5;
+    const pauseListener = () => {
+      if (video.currentTime >= pauseTime) {
+        video.pause();
+        landing.style.cursor = "pointer";
+        video.removeEventListener("timeupdate", pauseListener);
+      }
+    };
+    video.addEventListener("timeupdate", pauseListener);
+  
+    let fallTimeout = null;
+    const bufferMs = 2000; // buffer to trigger fall animation earlier by 150 ms
+  
+    // Click to resume playback if paused after 2 seconds
+    landing.addEventListener("click", () => {
+      if (video.paused && video.currentTime >= pauseTime && video.currentTime < video.duration) {
+        video.play();
+        landing.style.cursor = "default";
+  
+        // Calculate remaining time and subtract buffer
+        const remainingTime = video.duration - video.currentTime;
+        if (fallTimeout) clearTimeout(fallTimeout);
+  
+        fallTimeout = setTimeout(() => {
+          landing.classList.add("fall");
+        }, Math.max(0, (remainingTime * 1000) - bufferMs));
+      }
+    });
+  
+    // Remove the ended event listener because we're controlling fall via timeout now
+    video.removeEventListener("ended", () => {
+      landing.classList.add("fall");
+    });
+  });
+  

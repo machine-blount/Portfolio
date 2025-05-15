@@ -6,7 +6,8 @@ body {
     height: 100vh;
     width: 100vw;
     overflow: hidden;
-    background-color: black; /* Fallback color */
+    background-color: black;
+    position: relative; /* Add this */
 }
 
 .window{
@@ -22,20 +23,32 @@ body {
     margin: auto;
 }
 
-.landing{
-    display: flex;
+.landing {
+    position: absolute;
+    top: 50%;
+    left: 50%;
     width: 1000px;
     height: 750px;
-    background-color: #fff;
-    transform-origin: center center;
-    box-sizing: border-box;
-
-    flex-shrink: 0;
-    flex-grow: 0;
-    margin: auto;
+    transform: translate(-50%, -50%); /* Center from midpoint */
+    z-index: 10; /* On top of .window */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: black;
 }
 
+.landing-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
+  .landing.fall {
+    transform: translate(-50%, 200%) rotate(5deg);
+    transition: transform 1.2s ease-in-out;
+  }
+  
 .projects, .inspector{
 flex: 1;
 
@@ -102,6 +115,7 @@ flex: 1;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     text-align: center;
+
 }
 
 .active {
@@ -160,9 +174,6 @@ flex: 1;
 
 }
   
-.switch-tt{
-
-}
 */
 
 .label{
@@ -178,104 +189,6 @@ flex: 1;
     background-color: rgb(85, 85, 85);
     cursor: pointer;
 }
-
-/* LANDING PAGE */
-/*
-.landing .top-left {
-    top: 5%;
-    left: 5%;
-    z-index: 2000;
-}
-
-.landing .top-right {
-    top: 5%;
-    right: 5%;
-
-}
-
-.landing .bottom-left {
-    bottom: 5%;
-    left: 5%;
-
-}
-
-.landing .bottom-right {
-    bottom: 5%;
-    right: 5%;
- 
-}
-
-.corner-button:hover {
-    transform: scale(1.2);
-    background-color: darkred;
-
-}
-
-.corner-buttons {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1001;
-}
-
-.corner-button {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-
-    border: none;
-    cursor: pointer;
-    transition: transform 0.2s ease, background-color 0.2s ease, opacity 0.5s ease;
-    position: absolute;
-    pointer-events: auto;
-    opacity: 1;
-}
-*/
-/*
- LANDING SECTION 
-.landing {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
-    overflow: hidden;
-    transition: transform 1s ease-in-out;
-    transform-origin: top center; /* Set rotation point to top center 
-
-}
-.landing-video {
-    position: absolute;
-
-    top: 50%;
-    left: 50%;
-    width: 50%;
-    height: 50%;
-    object-fit: cover;
-    z-index: 999;
-    transform: translate(-50%, -50%);
-}
-
-.landing.fall {
-    transform: translateY(110%) rotate(5deg); /* Add 5 degrees rotation while falling 
-}
-
- Ensure content stays above video 
-.corner-buttons {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1001;
-}
-*/
-
 
 #project-link {
     display: inline-block;
@@ -369,7 +282,7 @@ flex: 1;
     background-color: #0056b3;
 }
 
-/* TOOLTIPS */
+/* TOOLTIPS 
 
 .tooltip {
     position: absolute;
@@ -390,6 +303,8 @@ flex: 1;
     opacity: 1;
     pointer-events: auto;
   }
+
+  */
   
   /* Optional: Position tooltips above the switches */
   #tooltip-switch-1,
