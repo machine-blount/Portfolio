@@ -10,7 +10,7 @@ const projectData = {
         endmill included in the Shapeoko 4 bundle from Carbide. This is not a fixed parameter and you're welcome to cut it out whichever 
         way works best.</p>
       `,
-      link: 'https://chat.openai.com/',
+      link: 'https://github.com/machine-blount/Frameoko',
       controlBg: 'assets/backgrounds/on-switch.jpg' // NEW FIELD
     },
     "Aux-kit": {
@@ -21,7 +21,7 @@ const projectData = {
         <p>An all in one auxiliary/supplementary solution for any electric-powered solar car teams competing in the National Solar Car Challenge. 
         In its current version It is designed as a Pi-HAT which connects to multiple expansion boards for quick iteration on separate parts of the system.</p>
       `,
-      link: 'https://chat.openai.com/',
+      link: 'https://github.com/machine-blount/aux-kit',
       controlBg: 'assets/backgrounds/on-switch.jpg'
     },
     "Metal Work": {
@@ -32,7 +32,7 @@ const projectData = {
         <p>Description of the Metal Work project goes here. Add details about what the project is, 
         technologies used, and its purpose.</p>
       `,
-      link: 'https://chat.openai.com/',
+      link: 'https://github.com/machine-blount/tab-generator',
       controlBg: 'assets/backgrounds/on-switch.jpg'
     },
     NuFLo: {
@@ -43,7 +43,7 @@ const projectData = {
         <p>Description of the NuFLo project goes here. Add details about what the project is, 
         technologies used, and its purpose.</p>
       `,
-      link: 'https://chat.openai.com/',
+      link: 'https://github.com/CameronBuckley-studio/NuFlo',
       controlBg: 'assets/backgrounds/on-switch.jpg'
     }
   };
@@ -140,18 +140,19 @@ buttons.forEach(button => {
 });
 
 //FORM HOTLOADING
+let showingForm = false;
+
 document.getElementById("switch-2").addEventListener("click", () => {
-  const container = document.getElementById("contact-form-container");
-  const isVisible = container.style.display === "block";
+  const description = document.getElementById("content-description");
 
-  // Toggle visibility
-  container.style.display = isVisible ? "none" : "block";
-
-  // Clear project description if showing form
-  document.getElementById("content-description").style.display = isVisible ? "block" : "none";
-
-  if (!isVisible) {
-    container.innerHTML = `
+  if (showingForm) {
+    // Restore previous project description (you may want to store it if needed)
+    description.innerHTML = "";
+    if (currentProjectKey && projectData[currentProjectKey]) {
+      description.innerHTML = projectData[currentProjectKey].description;
+    }
+  } else {
+    description.innerHTML = `
       <form class="contact-form">
         <div class="form-row full-width">
           <div class="form-group">
@@ -180,7 +181,11 @@ document.getElementById("switch-2").addEventListener("click", () => {
       </form>
     `;
   }
+
+  showingForm = !showingForm;
 });
+
+
   //WINDOW SCALING
   function updateScale() {
     const vw = window.innerWidth;
