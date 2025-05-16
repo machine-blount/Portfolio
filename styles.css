@@ -10,6 +10,7 @@ body {
     position: relative; /* Add this */
 }
 
+
 .window{
     display: flex;
     width: 1000px;
@@ -48,7 +49,7 @@ body {
     transform: translate(-50%, 200%) rotate(5deg);
     transition: transform 1.2s ease-in-out;
   }
-  
+
 .projects, .inspector{
 flex: 1;
 
@@ -84,7 +85,8 @@ flex: 1;
 .controls {
     display: flex;
     background-color: pink;
-    flex: .25;
+    /*flex: .25;*/
+    height: 70px;
     align-items: center;
     padding: 0 1rem;
     background: url("assets/backgrounds/controls-bg.jpg");
@@ -110,12 +112,16 @@ flex: 1;
 .project-selection{
     width: 27%; /* 25% of parent width = 50% total for 2 buttons */
     /*background-color: brown;*/
-    padding: 2rem;
+    padding: 2.5rem;
     cursor: pointer;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     text-align: center;
-
+    position: relative;
+    font-family: "Tomorrow", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 1.5rem;
 }
 
 .active {
@@ -183,6 +189,11 @@ flex: 1;
     background: url("assets/backgrounds/project-bg.jpg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
+    text-align: center;
+    position: relative;
+    font-family: "Tomorrow", sans-serif;
+    font-weight: 600;
+    font-style: italic;
 }
 
 .label:hover{
@@ -203,84 +214,6 @@ flex: 1;
   #project-link.hidden {
     display: none;
   }
-
-
-/* FORM */
-
-
-.contact-form-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    flex:1;
-
-
-}
-
-.form-row {
-    display: flex;
-    align-items: center;
-    justify-items: center;
-
-}
-
-.form-row.full-width {
-    width: 100%;
-}
-
-.form-group {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-
-}
-
-.form-group label {
-    margin-bottom: 8px;
-    font-weight: 500;
-    color: #333;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    padding: 12px;
-    border-radius: 4px;
-    font-size: 16px;
-    transition: border-color 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    border-color: #2680FF;
-    outline: none;
-}
-
-.form-group textarea {
-    resize: vertical;
-    min-height: 120px;
-}
-
-.submit-button {
-    background-color: #2680FF;
-    color: rgb(0, 0, 0);
-    padding: 12px 30px;
-    border: none;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.submit-button:hover {
-    background-color: #0056b3;
-}
 
 /* TOOLTIPS 
 
@@ -312,4 +245,30 @@ flex: 1;
     transform: translateY(-120%);
     left: 50%;
     transform: translateX(-50%) translateY(-120%);
+  }
+
+/*FORM*/
+  #content-description {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    text-align: left; /* Optional: change to center if you prefer centered labels */
+    height: 100%;
+    padding: 2rem;
+    font-family: "Tomorrow", sans-serif;
+    font-weight: 400;
+
+
+  }
+  
+  #content-description form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 400px;
+    font-family: "Tomorrow", sans-serif;
+    font-weight: 400;
+
   }

@@ -2,7 +2,7 @@
 const projectData = {
     Frameoko: {
       title: "Frameoko",
-      image: "assets/frameoko-turntable(low-res).mp4",
+      image: "",
       description: `
         <p>A Shapeoko "frame" which can be parametrically resized for other machines besides the preconfigured Shapeoko 4. 
         With emphasis on an out of the box build using limited shop tools the CAM files are designed to be cut with the stock 0.25" 
@@ -14,7 +14,7 @@ const projectData = {
     },
     "Aux-kit": {
       title: "Aux-kit",
-      image: "assets/favicon.png",
+      image: "assets/animations/auxkit-turntable.mp4",
       description: `
         <p>An all in one auxiliary/supplementary solution for any electric-powered solar car teams competing in the National Solar Car Challenge. 
         In its current version It is designed as a Pi-HAT which connects to multiple expansion boards for quick iteration on separate parts of the system.</p>
@@ -60,12 +60,47 @@ const projectData = {
   
     currentProjectKey = key;
   
-    // Update the description and image
-    document.getElementById("content-title").textContent = data.title;
+    // Update the description
+    gsap.to("#content-title", {
+        duration: 1.5,
+        scrambleText: {
+          text: data.title,
+          chars: "█▓▒░<>/\\|",
+          revealDelay: 0.2,
+          speed: 0.4
+        },
+        ease: "power2.out"
+      });
     document.getElementById("content-description").innerHTML = data.description;
-    document.getElementById("content-image").src = data.image;
-
-    // Reset all .control backgrounds to default (optional)
+  
+    const contentImage = document.getElementById("content-image");
+  
+    if (data.image.endsWith(".mp4")) {
+      // Replace image with a video element
+      const video = document.createElement("video");
+      video.src = data.image;
+      video.autoplay = true;
+      video.loop = true;
+      video.muted = true;
+      video.style.maxWidth = "100%";
+      video.id = "content-image";
+  
+      // Replace the current element with the new video
+      contentImage.replaceWith(video);
+    } else {
+      // Restore or update image
+      if (contentImage.tagName.toLowerCase() !== "img") {
+        const img = document.createElement("img");
+        img.id = "content-image";
+        img.style.maxWidth = "100%";
+        contentImage.replaceWith(img);
+        document.getElementById("content-image").src = data.image;
+      } else {
+        contentImage.src = data.image;
+      }
+    }
+  
+    // Reset all .control backgrounds
     document.querySelectorAll(".control").forEach(control => {
       control.style.backgroundImage = 'url("assets/backgrounds/off-switch-bg (2).jpg")';
     });
@@ -76,7 +111,6 @@ const projectData = {
       project.style.backgroundImage = `url("${data.controlBg}")`;
     }
   }
-  
   
   // Open link on switch click
   document.getElementById("switch-1").addEventListener("click", () => {
