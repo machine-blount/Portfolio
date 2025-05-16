@@ -2,7 +2,7 @@
 const projectData = {
     Frameoko: {
       title: "Frameoko",
-      image: "",
+      image: "assets/animations/frameoko-turntable.mp4",
       description: `
         <p>A Shapeoko "frame" which can be parametrically resized for other machines besides the preconfigured Shapeoko 4. 
         With emphasis on an out of the box build using limited shop tools the CAM files are designed to be cut with the stock 0.25" 
@@ -24,20 +24,18 @@ const projectData = {
     },
     "Metal Work": {
       title: "Metal Work",
-      image: "assets/metal-work.jpg",
+      image: "assets/animations/adapter-turntable.mp4",
       description: `
-        <p>Description of the Metal Work project goes here. Add details about what the project is, 
-        technologies used, and its purpose.</p>
+        <p>To create wheel adapters I designed every component to be as lightweight as possible which also meant designing them with the least amount of parts. Another criteria was making the adapters easily accessible since many of the older adapters had placed the mating bolt pattern in a way where certain bolts would be directly behind wheel spokes making them incredibly annoying to adjust or remove.</p>
       `,
       link: 'https://github.com/machine-blount/tab-generator',
       controlBg: 'assets/backgrounds/on-switch.jpg'
     },
     NuFLo: {
       title: "NuFLo",
-      image: "assets/nuflo.jpg",
+      image: "assets/animations/nuflo-turntable.mp4",
       description: `
-        <p>Description of the NuFLo project goes here. Add details about what the project is, 
-        technologies used, and its purpose.</p>
+        <p>Our off-grid NuFlo monitoring device, installed in both open and pump wells, uses a built-in sensor array to collect real-time data, which is transmitted via a low-power LoRa network to our interactive digital interface.</p>
       `,
       link: 'https://github.com/CameronBuckley-studio/NuFlo',
       controlBg: 'assets/backgrounds/on-switch.jpg'
