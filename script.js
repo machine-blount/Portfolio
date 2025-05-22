@@ -1,3 +1,5 @@
+gsap.registerPlugin(ScrambleTextPlugin);
+
 // Project data for each button
 const projectData = {
     Frameoko: {
